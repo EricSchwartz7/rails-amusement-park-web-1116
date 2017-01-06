@@ -75,3 +75,7 @@ populate actions
 view while action
 
 ### Sessions with password
+
+### Admin Flow
+
+Check if user is 

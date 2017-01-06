@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorize_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -15,11 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if session[:user_id].nil?
-      redirect_to root_path
-    else
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def index
@@ -40,12 +37,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :height, :happiness,
     :nausea, :tickets, :password, :admin)
   end
-
-  def authenticate_user
-    #code
-  end
-
-  def current_user
-    #code
-  end
+  
 end
