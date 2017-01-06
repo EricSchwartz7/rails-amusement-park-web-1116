@@ -1,0 +1,31 @@
+<h2>Signup Page</h2>
+
+<% if @user.errors.any? %>
+<p>Please fix the following errors:</p>
+<ul>
+  <% @user.errors.full_messages.each do |error|%>
+  <li><%= error  %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :height %>
+  <%= f.text_field :height %><br>
+  <%= f.label :happiness %>
+  <%= f.text_field :happiness %><br>
+  <%= f.label :nausea %>
+  <%= f.text_field :nausea %><br>
+  <%= f.label :tickets %>
+  <%= f.text_field :tickets %><br>
+  <%= f.label :password %>
+  <%= f.text_field :password %><br>
+
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+
+  <%= f.submit %>
+
+<% end %>

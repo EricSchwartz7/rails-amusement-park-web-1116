@@ -33,3 +33,45 @@ You're going to be building an amusement park. There will be users, attractions,
 
 
 <a href='https://learn.co/lessons/rails-amusement-park' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+
+## My Notes
+
+### Process
+
+
+#### Domain Modeling
+
+User has many rides
+User has many attractions through rides
+
+Ride belongs to User
+Ride belongs to Attraction
+
+Attraction has many Rides
+Attraction has many Users through rides
+
+
+#### Generate Migrations with all fields
+
+User:
+
+rails g migration createUsers name:string password_digest:string happiness:integer nausea:integer tickets:integer height:integer
+
+
+Attraction:
+
+rails g migration createAttractions name:string tickets:integer nausea_rating:integer happiness_rating:integer min_height:integer
+
+Ride:
+
+rails g migration createRides user_id:integer attraction_id:integer
+
+### Generating CRUD for each resource (routes, controllers, views)
+resources :users, :attractions
+controllers for each one
+actions
+populate actions
+view while action
+
+### Sessions with password
