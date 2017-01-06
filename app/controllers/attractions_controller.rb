@@ -21,17 +21,7 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.find(params[:id])
   end
 
-  def update
-    # Creates a new ride - DOES NOT EDIT Attraction
-
-  end
-
-  def go_on_ride
-    @user = User.find(session[:user_id])
-    @attraction = Attraction.find(params[:id])
-    @ride = Ride.new(user_id: @user.id, attraction_id: @attraction.id)
-    flash[:notice] = @ride.take_ride
-    redirect_to @user
+  def update  
   end
 
   def index
